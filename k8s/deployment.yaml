@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-argocd-demo
+  labels:
+    app: springboot-argocd-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-argocd-demo
+  template:
+    metadata:
+      labels:
+        app: springboot-argocd-demo
+    spec:
+      containers:
+        - name: springboot-argocd-demo
+          image: balo282/springboot-argocd-demo:latest
+          ports:
+            - containerPort: 8080
